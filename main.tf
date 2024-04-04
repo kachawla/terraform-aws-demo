@@ -17,7 +17,7 @@ resource "random_id" "resource" {
 }
 
 resource "aws_memorydb_cluster" "memorydb_cluster" {
-  name                   = var.memory_db_cluster_name
+  name                   = "memdb-${random_id.resource.hex}"
   node_type              = var.node_type
   num_shards             = var.num_shards
   num_replicas_per_shard = var.num_replicas_per_shard
